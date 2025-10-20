@@ -1,0 +1,38 @@
+{
+    "input_csv_path": "log_structured.csv",
+    "output_csv_path": "anomalies_detected.csv",
+    "report_path": "anomaly_report.json",
+    "chunk_size": 50,
+    "log_level": "INFO",
+    "max_retries": 3,
+    "rate_limit_delay": 1,
+    "llm_settings": {
+        "model": "gemini-1.5-flash",
+        "temperature": 0.1,
+        "max_tokens": 4096
+    },
+    "anomaly_thresholds": {
+        "confidence_threshold": 0.7,
+        "severity_keywords": {
+            "high": ["critical", "severe", "emergency", "breach", "attack"],
+            "medium": ["warning", "suspicious", "unusual", "error"],
+            "low": ["info", "notice", "debug"]
+        }
+    },
+    "output_formats": ["csv", "json", "html"],
+    "enable_real_time": false,
+    "enable_notifications": false,
+    "notification_settings": {
+        "email": {
+            "enabled": false,
+            "recipients": [],
+            "smtp_server": "",
+            "smtp_port": 587
+        },
+        "webhook": {
+            "enabled": false,
+            "url": "",
+            "auth_token": ""
+        }
+    }
+}
